@@ -1,0 +1,12 @@
+{
+"value": [
+  {"type": "speak", "value": "At your village, you decide to watch something. Will it be star wars or star trek? Would you like to pick star wars?"},
+  {"type": "choice", "true": [
+   {"type": "speak", "value": "Storm trooper noises, jedi noises. Darth Vader breathes. There is a fighting scene. Fortunately, the good guys don't get hurt. It turns out it was a happy ending the whole time."}
+   ], "false": [
+    {"type": "speak", "value": "They Trek on the stars. There is a scene with an alien species. They encounter an issue with the aliens. Fortunately, they are able to work it out and there is a happy ending."}
+   ]},
+   {"type": "speak", "value": "After you see the stars, you go to a bed. It is yours."},
+   {"type": "setstage", "value": "2"}
+ ]
+}

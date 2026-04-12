@@ -1,0 +1,43 @@
+{
+ "money": 10,
+ "backpack": ["beer", "cooked pork"],
+ "value": [
+  {"type": "speak", "value": "you are in a lake and you are swimming. You see something shiny at the bottom of the lake. Would you like to take a closer look?"},
+  {"type": "choice", "true": [
+   {"type": "speak", "value": "You inspect it closer. You can now clearly see a bar of gold press latinum! You swim and try to pick it up, but it is too heavy. Do you give up?"},
+   {"type": "choice", "true": [
+    {"type": "speak", "value": "Good choice, you probably would have gambled it away anyways."}
+   ], "false": [
+    {"type": "speak", "value": "You call your friends over, and ask them to bring a net. That's right, in this game you get to have friends. Unlike real life. Once your friends arrive, they try to help you get it. With a lot of team effort, it is lifted onto the land. You say that since you found it, you get to keep it. Your friends disagree and you only get a third of its value. Your friends leave."},
+    {"type": "money", "value": "0.33333"}
+   ]}], "false": [
+    {"type": "speak", "value": "Are you stupid? This is supposed to be a fun adventure game, you need to do everything. There could have been a bar of gold down there!"}
+   ]},
+   {"type": "speak", "value": "Once you leave the lake, you can see a forest and a mountain. You came from the forest. Would you like to go that way?"},
+   {"type": "choice", "true": [
+    {"type": "speak", "value": "You stroll through the forest and pass a really big bee. It buzzes. It turns out it was a bumblebee. You keep walking until you see a deer. Will you attack it?"},
+    {"type": "choice", "true": [
+     {"type": "speak", "value": "You attack the deer using your weapon."},
+     {"type": "random", "chance": 3, "true": [
+      {"type": "speak", "value": "You miss and the deer runs faster than a horse in a horse race."}
+     ], "false": [
+      {"type": "speak", "value": "You successfully shot the deer. You stash it into your backpack."},
+      {"type": "additem", "value": "raw deer"}
+     ]}], "false": [
+     {"type": "speak", "value": "You pass the deer and it runs away."}
+     ]},
+    {"type": "speak", "value": "You slip on a rock. How stupid of you. After that, you continue out. Once you're out of the forest, you reach your village."}
+   ], "false": [
+   {"type": "speak", "value": "The mountain is tall, but you don't have your climbing gear, so you can't climb it. You walk next to the mountain until you reach a river. Would you like to walk through it?"},
+   {"type": "choice", "true": [
+    {"type": "speak", "value": "You walk through the river, through the forest, eventually reaching your village."}
+   ], "false": [
+    {"type": "speak", "value": "You keep walking along the mountain range. You take a break since it is a long walk. You get back up and continue. After a little more walking, you realize you're hungry. You take the pork out of your backpack and eat it. You wash it down with a little beer."},
+    {"type": "delitem", "value": "cooked pork", "true":[], "false":[]},
+    {"type": "speak", "value": "Soon enough, you reach a village. Unfortunately, they do not think you should be there. They send you back to your village."}
+   ]}
+  ]},
+   {"type": "inventory"},
+   {"type": "setstage", "value": "1"}
+ ]
+}
