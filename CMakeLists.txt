@@ -1,2 +1,19 @@
-add_executable(game game.c vol.cpp say.cpp)
-target_link_libraries(game cjson)
+cmake_minimum_required(VERSION 3.20)
+project(ghg LANGUAGES C CXX)
+
+add_executable(ghg game.c vol.cpp say.cpp)
+
+target_link_libraries(ghg cjson)
+
+if(NOT WIN32)
+ set(CROSS_LIB_DIR ~/cross/${ARCH_CODE}/usr/lib/${ARCH_CODE})
+ target_link_directories(ghg PUBLIC ${CROSS_LIB_DIR} PUBLIC ${CROSS_LIB_DIR}/pulseaudio)
+ target_link_libraries(ghg asound espeak)
+endif()
+
+# sometimes I forget about /usr/games...
+
+install(TARGETS ghg
+ RUNTIME DESTINATION games)
+
+install(DIRECTORY AtypicalAdventure DESTINATION share/doc/ghg/examples)

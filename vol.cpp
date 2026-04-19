@@ -48,8 +48,6 @@ void* vol(long volume)
 
 // windows vol
 
-#include <windows.h>
-#include <commctrl.h>
 #include <mmdeviceapi.h>
 #include <endpointvolume.h>
 #include <stdio.h>
