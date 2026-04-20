@@ -151,6 +151,8 @@ void interpret(cJSON* instructions) {
   assume_strong(bpf);
   fputs(cJSON_Print(bpjso), bpf);
   fclose(bpf);
+//  cJSON_Delete(bpjso);
+//  cJSON_Delete(backpack);
 }
 
 int main(int argc, char ** argv) {
@@ -184,13 +186,15 @@ int main(int argc, char ** argv) {
  FILE* ijson;
 
  if(stage) {
-  char line[8]; // games should have less than 10,000,000 stages.
-  fgets(&line[0], sizeof(line), stage);
+  char* line = malloc(gdlen + 8);
+  strcpy(line, gd);
+  fgets(&line[gdlen], 8, stage);
   fclose(stage);
   ijson = fopen(line, "r");
  } else {
   ijson = fopen(F_INIT_JSON, "r");
  }
+
  assume_strong(ijson);
  fseek(ijson, 0, SEEK_END);
  long fsize = ftell(ijson);
@@ -201,14 +205,19 @@ int main(int argc, char ** argv) {
  ison[fsize] = 0;
 
  cJSON* it = cJSON_Parse(ison);
- cJSON* inthis;
- if(stage) {
-  inthis = it;
- } else {
-  inthis = item(it, "value");
+
+ if(!stage) {
+  cJSON* bpjso = cJSON_CreateObject();
+  cJSON_AddItemReferenceToObject(bpjso, "backpack", item(it, "backpack"));
+  cJSON_AddItemReferenceToObject(bpjso, "money", item(it, "money"));
+  FILE* bpf = fopen(F_BACKPACK_JSON,"w");
+  assume_strong(bpf);
+  fputs(cJSON_Print(bpjso), bpf);
+  fclose(bpf);
+  cJSON_Delete(bpjso);
  }
 
- interpret(inthis);
+ interpret(item(it, "value"));
 
  // This stage has been completed. run main again.
 
