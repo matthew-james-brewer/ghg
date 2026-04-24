@@ -22,11 +22,13 @@ struct timespec remaining, request = { 0, 0 };
 #define concat_realloc(og,ptr,len,nameoitem,itemlen) itemlen = strlen(nameoitem); og = realloc(og, len + itemlen + 1); ptr = &og[len]; strcpy(ptr,nameoitem); len += itemlen;
 
 bool wait_for_volume_change() {
+ long prev = *((long*)vol(-1));
  vol(50);
  int cv = 50;
  while((cv = *((long*)vol(-1))) == 50) {
   Sleep(200);
  }
+ vol(prev);
  return cv > 50;
 }
 

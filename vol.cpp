@@ -37,6 +37,7 @@ void* vol(long volume)
     } else {
         ret = (long*)malloc(sizeof(long));
         snd_mixer_selem_get_playback_volume(elem, SND_MIXER_SCHN_MONO, ret);
+        *ret = *ret / max;
     }
 
     snd_mixer_close(handle);
