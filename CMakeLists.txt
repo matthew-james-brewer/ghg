@@ -16,4 +16,5 @@ endif()
 install(TARGETS ghg
  RUNTIME DESTINATION games)
 
-install(DIRECTORY AtypicalAdventure DESTINATION share/doc/ghg/examples)
+install(FILES ghg.6 DESTINATION share/man/man6)
+install(DIRECTORY AtypicalAdventure DESTINATION ../var/games/ghg/examples)
