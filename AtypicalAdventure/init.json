@@ -9,7 +9,7 @@
     {"type": "speak", "value": "Good choice, you probably would have gambled it away anyways."}
    ], "false": [
     {"type": "speak", "value": "You call your friends over, and ask them to bring a net. That's right, in this game you get to have friends. Unlike real life. Once your friends arrive, they try to help you get it. With a lot of team effort, it is lifted onto the land. You say that since you found it, you get to keep it. Your friends disagree and you only get a third of its value. Your friends leave."},
-    {"type": "money", "value": "0.33333"}
+    {"type": "money", "value": 0.33333}
    ]}], "false": [
     {"type": "speak", "value": "Are you stupid? This is supposed to be a fun adventure game, you need to do everything. There could have been a bar of gold down there!"}
    ]},
@@ -38,6 +38,6 @@
    ]}
   ]},
    {"type": "inventory"},
-   {"type": "setstage", "value": "1"}
+   {"type": "setstage", "value": 1}
  ]
 }
