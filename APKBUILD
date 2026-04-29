@@ -3,19 +3,19 @@
 # Contributor:
 # Maintainer: Matthew Brewer <mjbrewer17@gmail.com>
 pkgname=ghg
-pkgver=1.0.2
+pkgver=1.0.3
 pkgrel=0
 pkgdesc="Play games on heaphones with volume buttons. Games can be programmed with JSON instructions."
-url="https://github.com/matthew-james-brewer/ghg"
+url=("https://github.com/matthew-james-brewer/ghg")
 arch=("x86_64" "i686" "aarch64" "armv7h")
-license="MPL-2.0"
-depends="cjson espeak-ng alsa-lib"
-makedepends=""
-checkdepends=""
-install=""
-subpackages=""
+license=("MPL-2.0")
+depends=("cjson" "espeak-ng" "alsa-lib")
+makedepends=()
+checkdepends=()
+install=()
+subpackages=()
 #source=$pkgver.tar.gz
-source="https://github.com/matthew-james-brewer/ghg/archive/refs/tags/$pkgver.tar.gz"
+source=("https://github.com/matthew-james-brewer/ghg/archive/refs/tags/$pkgver.tar.gz")
 builddir="$srcdir/"
 options="!check"
 
@@ -30,4 +30,4 @@ package() {
  cmake --install b
 }
 
-sha512sums="e46a1a9265a8daaf0aeabe0f2b1af033022626953450a3c814ce95cd0ef4f39bd1ad080dd3fb3fafd4bab0b073dff0ee389239e5ca82647481dfef8621d5a2ff $pkgver.tar.gz"
+sha512sums="2a318b356d16ed7e46e74969d3bfc134579ba934fc695addcc58653ef536260a6b928407501618d8865102a09bcc398a42859af6aeb3f02a115c71be4d37ad58 $pkgver.tar.gz"
