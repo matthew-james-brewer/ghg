@@ -8,7 +8,7 @@ target_link_libraries(ghg cjson)
 if(NOT WIN32)
  set(CROSS_LIB_DIR ~/cross/${ARCH_CODE}/usr/lib/${ARCH_CODE})
  target_link_directories(ghg PUBLIC ${CROSS_LIB_DIR} PUBLIC ${CROSS_LIB_DIR}/pulseaudio)
- target_link_libraries(ghg asound espeak)
+ target_link_libraries(ghg asound espeak-ng)
 endif()
 
 # sometimes I forget about /usr/games...

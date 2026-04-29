@@ -6,9 +6,9 @@
 
 #ifdef __unix__
 
-// UNIX say w/ espeak
+// UNIX say w/ espeak (ng)
 
-#include <espeak/speak_lib.h>
+#include <espeak-ng/speak_lib.h>
 
  espeak_AUDIO_OUTPUT output = AUDIO_OUTPUT_SYNCH_PLAYBACK;
  char *path = NULL;
