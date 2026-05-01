@@ -24,7 +24,7 @@ if $(arch_compat "arch"); then
  mkdir -p /tmp/ghg
  curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/PKGBUILD" -Lo /tmp/ghg/PKGBUILD
  cd /tmp/ghg
- makepkg -si
+ sudo -u nobody makepkg -si
  exit
 fi
 
@@ -33,8 +33,8 @@ if $(arch_compat "alpine"); then
  mkdir -p /tmp/ghg
  curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/APKBUILD" -Lo /tmp/ghg/APKBUILD
  cd /tmp/ghg
- sudo abuild -Fr
- sudo apk add /root/packages/root/$harch/ghg-*.apk
+ abuild -Fr
+ apk add /root/packages/root/$harch/ghg-*.apk
  rm /root/packages/root/$harch/ghg-*.apk
  exit
 fi
