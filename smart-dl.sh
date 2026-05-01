@@ -21,8 +21,8 @@ fi
 
 if $(arch_compat "arch"); then
  set -e
- mkdir -p /tmp/ghg
- curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/PKGBUILD" -Lo /tmp/ghg/PKGBUILD
+ sudo -u nobody mkdir -p /tmp/ghg
+ sudo -u nobody curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/PKGBUILD" -Lo /tmp/ghg/PKGBUILD
  cd /tmp/ghg
  sudo -u nobody makepkg -si
  exit
