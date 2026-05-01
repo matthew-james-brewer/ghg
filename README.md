@@ -11,7 +11,7 @@ You'll still need to download and extract this repository so you can copy Atypic
 
 ## Linux
 
-### anything other than Debian and Red Hat/Fedora based
+### anything other than Debian, Red Hat/Fedora based, Alpine, or Arch
 
 If you are not using Debian or Red Hat/Fedora based Linux, you'll need to manually install the dependencies: libcjson, libasound, and libespeak (or libesepeak-ng with a symlink). Exact package names vary between package managers.
 Then you can continue on:
@@ -19,6 +19,10 @@ Then you can continue on:
 ### all distros
 
 To install, run `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/smart-dl.sh | sudo sh`
+
+On Arch and Alpine, this will build it from source. On Alpine, you will need to generate keys and trust them.
+
+If you want to force it to use a different system, you can append the desired os name to the command. For example: `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/smart-dl.sh | sudo sh debian`. Use `none` for no distro.
 
 ## Windows
 
@@ -43,5 +47,9 @@ AtypicalAdventure is the name of the example, but you can also create your own h
 Debian based = `sudo apt remove ghg`
 
 Red Hat / Fedora based = `sudo dnf remove ghg`
+
+Arch = `pacman -R ghg`
+
+Alpine = `apk del ghg`
 
 Other = `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/uninstall.sh | sudo sh`

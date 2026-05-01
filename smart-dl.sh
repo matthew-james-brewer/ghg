@@ -4,7 +4,14 @@ harch=$(uname -m)
 sarch=$(sed -n "s/^ID=//p" /etc/os-release | sed "s/['\"]//g")
 sarchlike=$(sed -n "s/^ID_LIKE=//p" /etc/os-release | sed "s/['\"]//g")
 
+force=$1
+
 arch_compat() {
+ if [ "$force" ]; then
+  [ "$1" = "$force" ]
+  return $?
+ fi
+
  [ "$sarch" = "$1" ] || ( [ "$sarchlike" != "" ] && [ "$(echo "$sarchlike" | sed "s/\b$1\b//")" != "$sarchlike" ] )
  return $?
 }
@@ -38,8 +45,8 @@ if $(arch_compat "alpine"); then
  curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/APKBUILD" -Lo /tmp/ghg/APKBUILD
  cd /tmp/ghg
  abuild -Fr
- apk add /root/packages/root/$harch/ghg-*.apk
- rm /root/packages/root/$harch/ghg-*.apk
+ apk add /root/packages/tmp/$harch/ghg-*.apk
+ rm /root/packages/tmp/$harch/ghg-*.apk
  cd ..; rm -rf ghg
  exit
 fi
