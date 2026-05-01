@@ -26,7 +26,9 @@ if $(arch_compat "arch"); then
  curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/PKGBUILD" -Lo /tmp/ghg/PKGBUILD
  chown nobody:nobody /tmp/ghg/PKGBUILD
  cd /tmp/ghg
- sudo -u nobody makepkg -si
+ sudo -u nobody makepkg -s
+ pacman -U ghg-*-$harch.pkg.tar.zst
+ cd ..; rm -rf ghg
  exit
 fi
 
@@ -38,6 +40,7 @@ if $(arch_compat "alpine"); then
  abuild -Fr
  apk add /root/packages/root/$harch/ghg-*.apk
  rm /root/packages/root/$harch/ghg-*.apk
+ cd ..; rm -rf ghg
  exit
 fi
 
