@@ -3,7 +3,7 @@
 # Contributor:
 # Maintainer: Matthew Brewer <mjbrewer17@gmail.com>
 pkgname=ghg
-pkgver=1.0.4
+pkgver=1.0.5
 pkgrel=0
 pkgdesc="Play games on heaphones with volume buttons. Games can be programmed with JSON instructions."
 url="https://github.com/matthew-james-brewer/ghg"
@@ -30,4 +30,4 @@ package() {
  cmake --install b
 }
 
-sha512sums=("43a042638e2c819d23cb3a5e34bb60986e4489f23bb314ea61f6be2c92fb289c0209786b0dcbf900d9ae5cd820463121b88a99ce81cff1ea1f9e67f0fa354910")
+sha512sums=("4fa4017a633f2c840881c77d8608d514275a4a030113f4fc94e88b85413e6d53b336564a41428a41e9e9ccdab2931ea5bbfb6e9a482b787977d29cfaf1756d46")

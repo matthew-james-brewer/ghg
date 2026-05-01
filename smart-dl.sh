@@ -19,6 +19,26 @@ if $(arch_compat "rhel") || $(arch_compat "fedora"); then
  ext="rpm";
 fi
 
+if $(arch_compat "arch"); then
+ set -e
+ mkdir -p /tmp/ghg
+ curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/PKGBUILD" -Lo /tmp/ghg/PKGBUILD
+ cd /tmp/ghg
+ makepkg -si
+ exit
+fi
+
+if $(arch_compat "alpine"); then
+ set -e
+ mkdir -p /tmp/ghg
+ curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/APKBUILD" -Lo /tmp/ghg/APKBUILD
+ cd /tmp/ghg
+ sudo abuild -Fr
+ sudo apk add /root/packages/root/$harch/ghg-*.apk
+ rm /root/packages/root/$harch/ghg-*.apk
+ exit
+fi
+
 fname="$harch-linux-gnu-ghg.$ext"
 curl "https://github.com/matthew-james-brewer/ghg/releases/latest/download/$fname" -Lo /tmp/$fname
 
