@@ -190,11 +190,11 @@ int main(int argc, char ** argv) {
  if(stage) {
   char line[8];
   fgets(&line[0], 8, stage);
-  line[strlen(&line[0])-1] = 0;
+  int ll = strlen(&line[0]);
+  if(line[ll-1] == '\n') { line[ll-1] = 0; }
   fclose(stage);
   char* fname = malloc(gdlen + 12 + 8);
   sprintf(fname, "%s/stage/%s.json", gd, &line[0]);
-puts(fname);
   ijson = fopen(fname, "r");
   free(fname);
  } else {
