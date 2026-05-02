@@ -22,7 +22,7 @@ To install, run `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/h
 
 On Arch and Alpine, this will build it from source. On Alpine, you will need to generate keys and trust them.
 
-If you want to force it to use a different system, you can append the desired os name to the command. For example: `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/smart-dl.sh | sudo sh debian`. Use `none` for no distro.
+If you want to force it to use a different system, you can append the desired os name to the command. For example: `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/smart-dl.sh | sudo sh /dev/stdin debian`. Use `none` for no distro.
 
 ## Windows
 
@@ -30,15 +30,17 @@ On Windows, the only dependency is cJSON. It can be easily installed with vcpkg.
 
 Then you can download the [compressed archive (for x86_64)](https://github.com/matthew-james-brewer/ghg/releases/latest/download/x86_64-windows-msvc-ghg.tar.gz).
 
-There is also [a compressed arm64 archive](https://github.com/matthew-james-brewer/ghg/releases/latest/download/aarch64-windows-msvc-ghg.tar.gz).
+There is also [a compressed x86 archive](https://github.com/matthew-james-brewer/ghg/releases/latest/download/x86-windows-msvc-ghg.tar.gz) and [a compressed arm64 archive](https://github.com/matthew-james-brewer/ghg/releases/latest/download/aarch64-windows-msvc-ghg.tar.gz).
 
 # How to use
 
 ## Linux and Windows
 
-ghg is a command-line only program. To use it, run `[install path]/games/ghg [install path]/var/games/ghg/examples/AtypicalAdventure`.
+ghg is a command-line only program. To use it, run `[install path]/usr/games/ghg [install path]/var/games/ghg/examples/AtypicalAdventure`.
 
-AtypicalAdventure is the name of the example, but you can also create your own headphone game (no docs yet).
+AtypicalAdventure is the name of the example, but you can also create your own headphone game
+
+You can read the groff manpage using `man ghg` on linux or `gzip -cd [install path]/usr/share/man/man6/ghg.6.gz | groff -t -man -Tascii | more` on windows (with groff and gzip installed).
 
 # How to uninstall
 

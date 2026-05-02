@@ -6,21 +6,21 @@
 
 #ifdef __unix__
 
-// UNIX say w/ espeak (ng)
+// UNIX say w/ espeak
 
-#include <espeak-ng/speak_lib.h>
+#include <espeak/speak_lib.h>
 
  espeak_AUDIO_OUTPUT output = AUDIO_OUTPUT_SYNCH_PLAYBACK;
  char *path = NULL;
  void* user_data;
  unsigned int *identifier;
+ char voicename[] = {"English"}; // Set voice by its name
+ int buflength = 500, options = 0;
+ unsigned int position = 0, position_type = 0, end_position = 0, flags = espeakCHARS_AUTO;
 
 extern "C"
 void say(char* text)
 {
-   char voicename[] = {"English"}; // Set voice by its name
-   int buflength = 500, options = 0;
-   unsigned int position = 0, position_type = 0, end_position = 0, flags = espeakCHARS_AUTO;
    espeak_Initialize(output, buflength, path, options);
    espeak_SetVoiceByName(voicename);
    espeak_Synth(text, buflength, position, (espeak_POSITION_TYPE)position_type, end_position, flags, identifier, user_data);

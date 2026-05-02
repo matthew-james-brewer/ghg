@@ -8,5 +8,9 @@ curl "https://github.com/matthew-james-brewer/ghg/releases/latest/download/$fnam
 read -p "Where is it installed? " ipath < /dev/tty
 
 for installed in $(tar tzf /tmp/$fname | sed "s/^compiled//"); do
- rm $ipath/$installed
+ if [ -d $ipath/$installed ]; then
+  rmdir --ignore-fail-on-non-empty $ipath/$installed
+ else
+  rm $ipath/$installed
+ fi
 done

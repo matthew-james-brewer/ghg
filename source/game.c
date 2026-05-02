@@ -188,11 +188,14 @@ int main(int argc, char ** argv) {
  FILE* ijson;
 
  if(stage) {
-  char* line = malloc(gdlen + 8);
-  strcpy(line, gd);
+  char line[8];
   fgets(&line[gdlen], 8, stage);
+  line[strlen(&line[0])-1] = 0;
   fclose(stage);
-  ijson = fopen(line, "r");
+  char* fname = malloc(gdlen + 12 + 8);
+  sprintf(fname, "%s/stage/%s.json", gd, &line[0]);
+  ijson = fopen(fname, "r");
+  free(fname);
  } else {
   ijson = fopen(F_INIT_JSON, "r");
  }
