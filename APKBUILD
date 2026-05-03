@@ -1,7 +1,7 @@
 # Contributor:
 # Maintainer: Matthew Brewer <mjbrewer17@gmail.com>
 pkgname=ghg
-pkgver=1.0.6
+pkgver=1.0.7
 pkgrel=0
 pkgdesc="Play games on heaphones with volume buttons. Games can be programmed with JSON instructions."
 url="https://github.com/matthew-james-brewer/ghg"
@@ -33,4 +33,4 @@ package() {
  done
 }
 
-sha512sums="402ddac3771e818b71d801d4f6e01aaa5156e8f99cff875f09787edc401da31ee627cc435635bc3da0fdc31de258ebc1aa8ef1b58468a5ada618c9a5dbf659b6  $pkgver-$pkgname.tar.gz"
+sha512sums="dba71b2ba89a1855acd14243ea87a3aa2230ab34c52d27de78280753d501219e2e43f6d929a3c804acc6b281df421d41f515c58d6664363b769210a1dc14e669  $pkgver-$pkgname.tar.gz"
