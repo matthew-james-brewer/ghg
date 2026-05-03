@@ -1,11 +1,13 @@
 #include "vol.h"
 #include "say.h"
-#include <cjson/cJSON.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <time.h>
+
+// TODO: make the swti
+#include <cjson/cJSON.h>
 
 #if defined(_WIN32) || defined(WIN32)
 #include <windows.h>
@@ -58,6 +60,7 @@ void interpret(cJSON* instructions) {
  bson[fsize] = 0;
 
  cJSON* backpack2 = cJSON_Parse(bson);
+ free(bson);
  backpack = item(backpack2, "backpack");
  money = item(backpack2, "money")->valueint;
 
@@ -211,6 +214,7 @@ int main(int argc, char ** argv) {
  ison[fsize] = 0;
 
  cJSON* it = cJSON_Parse(ison);
+ free(ison);
 
  if(!stage) {
   cJSON* bpjso = cJSON_CreateObject();
@@ -224,6 +228,11 @@ int main(int argc, char ** argv) {
  }
 
  interpret(item(it, "value"));
+
+ free(F_BACKPACK_JSON);
+ free(F_CURRENCY_TXT);
+ free(F_STAGE_TXT);
+ free(F_INIT_JSON);
 
  // This stage has been completed. run main again.
 
