@@ -6,8 +6,8 @@ add_executable(ghg source/game.c source/vol.cpp source/say.cpp)
 target_link_libraries(ghg cjson)
 
 if(NOT WIN32)
- set(CROSS_LIB_DIR ~/cross/${ARCH_CODE}/usr/lib/${ARCH_CODE})
- target_link_directories(ghg PUBLIC ${CROSS_LIB_DIR} PUBLIC ${CROSS_LIB_DIR}/pulseaudio)
+ set(CROSS_LIB_DIR ~/cross/persist/${ARCH_CODE})
+ target_link_directories(ghg PUBLIC ${CROSS_LIB_DIR})
  target_link_libraries(ghg asound espeak)
 endif()
 
