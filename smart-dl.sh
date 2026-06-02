@@ -30,7 +30,7 @@ if $(arch_compat "arch"); then
  set -e
  mkdir -p /tmp/ghg
  chown nobody:nobody /tmp/ghg
- curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/PKGBUILD" -Lo /tmp/ghg/PKGBUILD
+ curl "http://libhacker.cc/static/ghg/dl/PKGBUILD" -Lo /tmp/ghg/PKGBUILD
  chown nobody:nobody /tmp/ghg/PKGBUILD
  cd /tmp/ghg
  sudo -u nobody makepkg -s
@@ -42,7 +42,7 @@ fi
 if $(arch_compat "alpine"); then
  set -e
  mkdir -p /tmp/ghg
- curl "https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/APKBUILD" -Lo /tmp/ghg/APKBUILD
+ curl "http://libhacker.cc/static/ghg/dl/APKBUILD" -Lo /tmp/ghg/APKBUILD
  cd /tmp/ghg
  abuild -Fr
  apk add /root/packages/tmp/$harch/ghg-*.apk
@@ -52,7 +52,7 @@ if $(arch_compat "alpine"); then
 fi
 
 fname="$harch-linux-gnu-ghg.$ext"
-curl "https://github.com/matthew-james-brewer/ghg/releases/latest/download/$fname" -Lo /tmp/$fname
+curl "http://libhacker.cc/static/ghg/release/latest/$fname" -Lo /tmp/$fname
 
 case $ext in
  deb) apt install /tmp/$fname -y;;

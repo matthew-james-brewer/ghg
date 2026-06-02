@@ -3,7 +3,7 @@
 harch=$(uname -m)
 
 fname="$harch-linux-gnu-ghg.tar.gz"
-curl "https://github.com/matthew-james-brewer/ghg/releases/latest/download/$fname" -Lo /tmp/$fname
+curl "http://libhacker.cc/static/ghg/release/latest/$fname" -Lo /tmp/$fname
 
 read -p "Where is it installed? " ipath < /dev/tty
 

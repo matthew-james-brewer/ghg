@@ -18,19 +18,19 @@ Then you can continue on:
 
 ### all distros
 
-To install, run `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/smart-dl.sh | sudo sh`
+To install, run `curl -Ls http://libhacker.cc/static/ghg/dl/smart-dl.sh | sudo sh`
 
 On Arch and Alpine, this will build it from source. On Alpine, you will need to generate keys and trust them.
 
-If you want to force it to use a different system, you can append the desired os name to the command. For example: `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/smart-dl.sh | sudo sh /dev/stdin debian`. Use `none` for no distro.
+If you want to force it to use a different system, you can append the desired os name to the command. For example: `curl -Ls http://libhacker.cc/static/ghg/dl/smart-dl.sh | sudo sh /dev/stdin debian`. Use `none` for no distro.
 
 ## Windows
 
 On Windows, the only dependency is cJSON. It can be easily installed with vcpkg.
 
-Then you can download the [compressed archive (for x86_64)](https://github.com/matthew-james-brewer/ghg/releases/latest/download/x86_64-windows-msvc-ghg.tar.gz).
+Then you can download the [compressed archive (for x86_64)](http://libhacker.cc/static/ghg/release/latest/x86_64-windows-msvc-ghg.tar.gz).
 
-There is also [a compressed x86 archive](https://github.com/matthew-james-brewer/ghg/releases/latest/download/x86-windows-msvc-ghg.tar.gz) and [a compressed arm64 archive](https://github.com/matthew-james-brewer/ghg/releases/latest/download/aarch64-windows-msvc-ghg.tar.gz).
+There is also [a compressed x86 archive](http://libhacker.cc/static/ghg/release/latest/x86-windows-msvc-ghg.tar.gz) and [a compressed arm64 archive](http://libhacker.cc/static/ghg/release/latest/aarch64-windows-msvc-ghg.tar.gz).
 
 # How to use
 
@@ -54,4 +54,4 @@ Arch = `pacman -R ghg`
 
 Alpine = `apk del ghg`
 
-Other = `curl -Ls https://github.com/matthew-james-brewer/ghg/raw/refs/heads/master/uninstall.sh | sudo sh`
+Other = `curl -Ls http://libhacker.cc/static/ghg/dl/uninstall.sh | sudo sh`
